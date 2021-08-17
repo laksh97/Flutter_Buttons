@@ -24,6 +24,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _name = "Hello World";
+  int _value = 0;
 
   //  void _onClick() {
   //   setState(() {
@@ -40,6 +41,18 @@ class _MyAppState extends State<MyApp> {
   void _onClick() {
     setState(() {
       _name = DateTime.now().toString();
+    });
+  }
+
+  void _add() {
+    setState(() {
+      _value++;
+    });
+  }
+
+  void _subtract() {
+    setState(() {
+      _value--;
     });
   }
 
@@ -63,7 +76,7 @@ class _MyAppState extends State<MyApp> {
               ),
               ElevatedButton(
                 onPressed: _onClick,
-                child: Text('Click Me!'),
+                child: Text('ElevatedButton!'),
               ),
               SizedBox(
                 height: 30,
@@ -71,8 +84,27 @@ class _MyAppState extends State<MyApp> {
               ),
               TextButton(
                 onPressed: _onClick,
-                child: Text('Click Me!'),
-              )
+                child: Text('TextButton!'),
+              ),
+              SizedBox(
+                height: 30,
+                width: 30,
+              ),
+              Text(
+                "Value is $_value",
+              ),
+              IconButton(
+                onPressed: _add,
+                icon: Icon(Icons.add),
+              ),
+              SizedBox(
+                height: 30,
+                width: 30,
+              ),
+              IconButton(
+                onPressed: _subtract,
+                icon: Icon(Icons.remove),
+              ),
             ],
           ),
         ),
